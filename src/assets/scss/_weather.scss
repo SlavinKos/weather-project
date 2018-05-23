@@ -1,101 +1,105 @@
+* {
+	font-family: Roboto;
+}
+
 .selected-day, .search {
-  display: flex;
-  flex-direction: row;
-  height: auto;
-  margin: 20px;
-  .weather-icon {
-    -webkit-align-self: flex-start;
-   align-self: flex-start;
-  }
-  .weather-form {
-    margin-left: auto;
-    button {
-      margin-left: 20px;
-    }
-  }
-  .day-short {
-    text-align: left;
-    width: 20%;
-  }
-  .day-long {
-    text-align: center;
-    width: 80%;
-    .data {
-      h4 {
-        font-size: 20px;
-      }
-      p {
-        @include flex-center;
-        span {
-          position: relative;
-          top: 15px;
-        }
-      }
-      ul {
-        @include flex-direction;
-        flex-wrap: wrap;
-        justify-content: space-around;
-      }
-      li {
-        font-weight: 800;
-        list-style: none;
-        display: inline;
-        margin: 0 10px;
-        span {
-          font-weight: normal;
-        }
-      }
-    }
-  }
+	display: flex;
+	flex-direction: row;
+	height: auto;
+	margin: 20px;
+	.weather-icon {
+		-webkit-align-self: flex-start;
+	 align-self: flex-start;
+	}
+	.weather-form {
+		margin-left: auto;
+		button {
+			margin-left: 20px;
+		}
+	}
+	.day-short {
+		text-align: left;
+		width: 20%;
+	}
+	.day-long {
+		text-align: center;
+		width: 80%;
+		.data {
+			h4 {
+				font-size: 20px;
+			}
+			p {
+				@include flex-center;
+				span {
+					position: relative;
+					top: 15px;
+				}
+			}
+			ul {
+				@include flex-direction;
+				flex-wrap: wrap;
+				justify-content: space-around;
+			}
+			li {
+				font-weight: 800;
+				list-style: none;
+				display: inline;
+				margin: 0 10px;
+				span {
+					font-weight: normal;
+				}
+			}
+		}
+	}
 }
 
 .mat-raised-button {
-  margin-left: 20px;
+	margin-left: 20px;
 }
 .weather-menu {
-  p {
-    margin-left: 30px;
-  }
-  ul {
-    @include flex-direction;
-    list-style-type: none;
-    margin: 0;
-    padding: 10px;
-    border-top: solid 1px $color-eee;
-    border-bottom: solid 1px $color-eee;
-  }
-  
-  li {
-    margin: 0 20px;
-    flex-wrap: wrap;
-  }
+	p {
+		margin-left: 30px;
+	}
+	ul {
+		@include flex-direction;
+		list-style-type: none;
+		margin: 0;
+		padding: 10px;
+		border-top: solid 1px $color-eee;
+		border-bottom: solid 1px $color-eee;
+	}
+	
+	li {
+		margin: 0 20px;
+		flex-wrap: wrap;
+	}
 }
 
 body {
-  margin: 0px;
-  padding: 0px;
+	margin: 0px;
+	padding: 0px;
 }
 
 a {
-  color: $color-393;
-  text-decoration: none;
-  transition: all .8s;
-  &:hover {
-    opacity: .6;
-  }
+	color: $color-393;
+	text-decoration: none;
+	transition: all .8s;
+	&:hover {
+		opacity: .6;
+	}
 }
 
 .active {
-  color: $color-link-active;
+	color: $color-link-active;
 }
 
 
 .chart-container {
-  @include flex-center;
-  padding: 20px 0;
-  width: 100%;
+	@include flex-center;
+	padding: 20px 0;
+	width: 100%;
 }
 
 chart {
-  width: 100%;
+	width: 100%;
 }

@@ -1,21 +1,27 @@
 <div class="search">
 
-  <div class="weather-icon" *ngFor="let d of selectedDay$ | async">
-    <img [src]="d.weatherIcon" alt="">
+  <div 
+        class="weather-icon" 
+        *ngFor="let d of selectedDay$ | async"
+  >
+    <img [src]="d.weatherIcon" alt="d.weather">
   </div>
 
   <div class="weather-form">
   <form>
     <mat-form-field class="example-full-width">
       <input 
-          matInput 
-          placeholder="City or zip code"
-          autocomplete="off"
-          [(ngModel)]="search"
-          [ngModelOptions]="{standalone: true}"
+              matInput 
+              placeholder="City or zip code"
+              autocomplete="off"
+              [(ngModel)]="search"
+              [ngModelOptions]="{standalone: true}"
       >
     </mat-form-field>
-    <button mat-raised-button color="primary" (click)="getWeather()">Get weather</button>
+    <button 
+            mat-raised-button color="primary" 
+            (click)="getWeather()"
+    >Get weather</button>
   </form>
 </div>
 </div>
