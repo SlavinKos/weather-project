@@ -11,7 +11,7 @@ import * as fromAppStore from '../../store/app.reducers';
 })
 export class WeatherDataComponent implements OnInit {
 	selectedDay$: Observable <any>;
-	show: boolean: false;
+	show: boolean = false;
 
 	constructor(
 		private _store: Store<fromAppStore.AppState>

@@ -18,6 +18,7 @@ export class TemperatureComponent implements OnInit, AfterViewInit {
 	chart: Object;
 	selectedDay: any;
 	temperature: any;
+	optionsData: any;
 
 	constructor(
 		private _store: Store<fromAppStore.AppState>
@@ -26,20 +27,13 @@ export class TemperatureComponent implements OnInit, AfterViewInit {
 	ngOnInit() {
 	this.options$ = this._store.select(state => {
 		if (state.weather.weather.length) {
-			return this.setChartData(state.weather.weather[0]);
+			this.optionsData = state.weather.weather[0];
+			return this.setChartData();
 		}
 	});
-			// .subscribe(w => {
-			// 	if (w.length) {
-			// 		this.temperature = w[0];
-			// 		console.log('1', this.temperature);
-			// 		console.log(w);
-			// 	}
-			// });
 	}
 
-	setChartData(options) {
-		console.log('options ', options);
+	setChartData() {
 		// setTimeout(() => {
 		return {
 			chart: {
@@ -52,36 +46,31 @@ export class TemperatureComponent implements OnInit, AfterViewInit {
 					point: {
 							events: {
 									click: function(e) {
-										
-										// this.selectedDay = {};
-										console.log('before ', this.selectedDay);
-										
 										this.selectedDay = {
-												city: options.city.name,
-												country: options.city.country,
-												temp: options.list[e.point.x].main.temp,
-												pres: options.list[e.point.x].main.pressure,
-												hum: options.list[e.point.x].main.humidity,
-												wind: options.list[e.point.x].wind.speed,
-												cloud: options.list[e.point.x].clouds.all,
-												date: moment.unix(options.list[e.point.x].dt).format('dddd, D MMM'),
-												weatherIcon: `${this.apiIconUrl}/${options.list[e.point.x].weather[0].icon}.png`
+												city: this.optionsData.city.name,
+												country: this.optionsData.city.country,
+												temp: this.optionsData.list[e.point.x].main.temp,
+												pres: this.optionsData.list[e.point.x].main.pressure,
+												hum: this.optionsData.list[e.point.x].main.humidity,
+												wind: this.optionsData.list[e.point.x].wind.speed,
+												cloud: this.optionsData.list[e.point.x].clouds.all,
+												date: moment.unix(this.optionsData.list[e.point.x].dt).format('dddd, D MMM'),
+												weatherIcon: `${this.apiIconUrl}/${this.optionsData.list[e.point.x].weather[0].icon}.png`
 											};
 										this._store.dispatch(new SelectedDayActions.SetSelectedDay(this.selectedDay));
-										console.log('set day ', this.selectedDay);
 									}.bind(this)
 							}
 					}
 			}
 	},
 		title: {
-				text: `Temperature in ${options.city.name}`
+				text: `Temperature in ${this.optionsData.city.name}`
 		},
 		subtitle: {
 				text: 'Source: OpenWeatherMap API'
 		},
 		xAxis: [{
-				categories: options.list.map(day => {
+				categories: this.optionsData.list.map(day => {
 					return moment(day.dt_txt, 'YYYY-MM-DD').format('Do MMMM');
 				}),
 				crosshair: true
@@ -90,13 +79,13 @@ export class TemperatureComponent implements OnInit, AfterViewInit {
 				labels: {
 						format: '{value}°C',
 						style: {
-								// color: Highcharts.getOptions().colors[1]
+								// color: Highcharts.getthis.optionsData().colors[1]
 						}
 				},
 				title: {
 						text: 'Temperature',
 						style: {
-								// color: Highcharts.getOptions().colors[1]
+								// color: Highcharts.getthis.optionsData().colors[1]
 						}
 				}
 		},
@@ -116,7 +105,7 @@ export class TemperatureComponent implements OnInit, AfterViewInit {
 		series: [{
 				name: 'Temperature',
 				type: 'column',
-				data: options.list.map(day => {
+				data: this.optionsData.list.map(day => {
 					return day.main.temp;
 				}),
 				tooltip: {
