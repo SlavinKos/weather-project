@@ -11,7 +11,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## 1. Clone the git repository:
 
 ```
-git clone https://koss_sl@bitbucket.org/koss_sl/weather-proj.git [new_brand_directory]
+git clone https://github.com/SlavinKos/weather-project.git [new_brand_directory]
 ```
 
 and switch to the project directpory (`[new_brand_directory]`):
