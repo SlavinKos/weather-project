@@ -77,12 +77,8 @@ MatExpansionModule
 ];
 @NgModule({
 imports: MATERIAL_MODULES,
-declarations: [
-	// MatExpansionPanel,
-	// MatRadioButton
-],
+declarations: [],
 providers: [
-		// { provide: MAT_PLACEHOLDER_GLOBAL_OPTIONS, useValue: { float: 'always' } },
 		{ provide: LOCALE_ID, useValue: 'ru-RU' },
 	],
 exports: MATERIAL_MODULES,

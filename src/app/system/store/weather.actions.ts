@@ -23,5 +23,4 @@ export class SetError implements Action {
 	}
 }
 
-
-export type WeatherActions = FetchWeather | SetWeather;
+export type WeatherActions = FetchWeather | SetWeather | SetError;

@@ -21,7 +21,7 @@ import { SnackService, SnackBarMessage } from './common/services/snack.service';
 	}
 	`],
 })
-export class AppComponent implements OnInit  {
+export class AppComponent implements OnInit, OnDestroy {
 	private sub: Subscription = null;
 
 	constructor(
@@ -44,7 +44,6 @@ export class AppComponent implements OnInit  {
 	hideMessage() {
 		this._snackBar.dismiss();
 	}
-
 
 	ngOnDestroy() {
 		if (this.sub != null) {

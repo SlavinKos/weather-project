@@ -21,7 +21,7 @@ export class TemperatureComponent extends BaseWeatherClass implements OnInit {
 
 	constructor(public _store: Store<fromAppStore.AppState>) {
 		super(_store);
-	 }
+	}
 
 	ngOnInit() {
 		this.options$ = this._store.select(state => {

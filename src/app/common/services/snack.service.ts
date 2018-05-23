@@ -2,12 +2,11 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 export interface SnackBarMessage {
-	message: string,
-	action?: string,
-	duration?: number,
-	status?: string
-	// config?: any
-};
+	message: string;
+	action?: string;
+	duration?: number;
+	status?: string;
+}
 
 @Injectable()
 export class SnackService {

@@ -1,34 +1,34 @@
-  <div 
-        class="selected-day" 
-        *ngFor="let d of selectedDay$ | async"
-  >
-    <div class="day-short">{{ d.date }}</div>
-    <div class="day-long">
-      <div class="day-long data">
-        <h4> {{ d.city }}, {{ d.country }}</h4>
-        <h2>  {{ d.temp }} °C</h2>
-        <p>
-          <img [src]="d.weatherIcon" alt="d.weather">
-          <span>{{ d.weather }}</span>
-        </p>
-        <ul>
-          <li>Pressure: <span>{{ d.pres }}</span> </li>
-          <li>Humidity: <span>{{ d.hum }}</span> </li>
-          <li>Wind speed: <span>{{ d.wind }} m/s</span> </li>
-          <li>Clouds: <span>{{ d.cloud }} %</span> </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  
-  <div class="weather-menu">
-  <p>Forecast 5 days</p>
-    <ul>
-      <li><a routerLink="wind" routerLinkActive="active">Wind</a></li>
-      <li><a routerLink="temperature" routerLinkActive="active">Temperature</a></li>
-      <li><a routerLink="pressure" routerLinkActive="active">Pressure</a></li>
-      <li><a routerLink="humidity" routerLinkActive="active">Humidity</a></li>
-    </ul>
-  </div>
+	<div 
+				class="selected-day" 
+				*ngFor="let d of selectedDay$ | async"
+	>
+		<div class="day-short">{{ d.date }}</div>
+		<div class="day-long">
+			<div class="day-long data">
+				<h4> {{ d.city }}, {{ d.country }}</h4>
+				<h2>  {{ d.temp }} °C</h2>
+				<p>
+					<img [src]="d.weatherIcon" alt="d.weather">
+					<span>{{ d.weather }}</span>
+				</p>
+				<ul>
+					<li>Pressure: <span>{{ d.pres }}</span> </li>
+					<li>Humidity: <span>{{ d.hum }}</span> </li>
+					<li>Wind speed: <span>{{ d.wind }} m/s</span> </li>
+					<li>Clouds: <span>{{ d.cloud }} %</span> </li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<div class="weather-menu">
+	<p>Forecast 5 days</p>
+		<ul>
+			<li><a routerLink="wind" routerLinkActive="active">Wind</a></li>
+			<li><a routerLink="temperature" routerLinkActive="active">Temperature</a></li>
+			<li><a routerLink="pressure" routerLinkActive="active">Pressure</a></li>
+			<li><a routerLink="humidity" routerLinkActive="active">Humidity</a></li>
+		</ul>
+	</div>
 
-  <router-outlet></router-outlet>
+	<router-outlet></router-outlet>

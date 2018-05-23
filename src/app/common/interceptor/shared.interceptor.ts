@@ -25,7 +25,7 @@ export class SharedInterceptor implements HttpInterceptor {
 				(error: any) => {
 					if (error instanceof HttpErrorResponse) {
 						if (error.status === 404) {
-							this._snackBar.message({ message: 'City not found please check the name' });
+							this._snackBar.message({ message: 'City not found please check the name or zip code' });
 						}
 					}
 		});

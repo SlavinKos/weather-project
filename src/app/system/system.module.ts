@@ -13,9 +13,9 @@ import {
 	WindComponent,
 	PressureComponent,
 	HumidityComponent
- } from './common/index';
+} from './common/index';
 
-declare var require : any;
+declare var require: any;
 export function highchartsFactory() {
 	const hc = require('highcharts/highstock');
 	const dd = require('highcharts/modules/exporting');
