@@ -2,6 +2,36 @@
 	font-family: Merriweather;
 }
 
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+a {
+	color: $color-393;
+	text-decoration: none;
+	transition: all .8s;
+	&:hover {
+		opacity: .6;
+	}
+}
+
+.active {
+	color: $color-link-active;
+}
+
+
+.chart-container {
+	@include flex-center;
+	padding: 20px 0;
+	width: 100%;
+}
+
+chart {
+	width: 100%;
+}
+
+
 .selected-day, .search {
 	display: flex;
 	flex-direction: row;
@@ -73,33 +103,4 @@
 		margin: 0 20px;
 		flex-wrap: wrap;
 	}
-}
-
-body {
-	margin: 0px;
-	padding: 0px;
-}
-
-a {
-	color: $color-393;
-	text-decoration: none;
-	transition: all .8s;
-	&:hover {
-		opacity: .6;
-	}
-}
-
-.active {
-	color: $color-link-active;
-}
-
-
-.chart-container {
-	@include flex-center;
-	padding: 20px 0;
-	width: 100%;
-}
-
-chart {
-	width: 100%;
 }
