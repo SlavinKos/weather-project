@@ -22,7 +22,6 @@ export class SharedInterceptor implements HttpInterceptor {
 			.handle(req)
 			.do(event => {
 				if (event instanceof HttpResponse) {
-					console.log('response ', event);
 				}
 			},
 			(error: any) => {

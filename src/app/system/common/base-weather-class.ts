@@ -38,6 +38,7 @@ export class BaseWeatherClass implements OnInit {
 		return {
 			chart: {
 				zoomType: 'xy',
+				width: null,
 		},
 		plotOptions: {
 			series: {

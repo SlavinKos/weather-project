@@ -16,7 +16,7 @@ export class WeatherService {
 	constructor(public _http: HttpClient) {}
 
 	getWeather(param): Observable<any> {
-		return this._http.get(`${this.apiUrl}?q=${param}&cnt=16&appid=${this.appKey}&units=metric`);
+		return this._http.get(`${this.apiUrl}?q=${param}&appid=${this.appKey}&units=metric`);
 			// .pipe(catchError((error: any) => Observable.throw(error.json())));
 	}
 

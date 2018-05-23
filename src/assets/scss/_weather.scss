@@ -21,18 +21,19 @@
     text-align: center;
     width: 80%;
     .data {
+      h4 {
+        font-size: 20px;
+      }
       p {
-        display: flex;
-        justify-content: center;
+        @include flex-center;
         span {
           position: relative;
           top: 15px;
         }
       }
       ul {
-        display: flex;
+        @include flex-direction;
         flex-wrap: wrap;
-        flex-direction: row;
         justify-content: space-around;
       }
       li {
@@ -56,13 +57,12 @@
     margin-left: 30px;
   }
   ul {
+    @include flex-direction;
     list-style-type: none;
-    display: flex;
-    flex-direction: row;
     margin: 0;
     padding: 10px;
-    border-top: solid 1px #eee;
-    border-bottom: solid 1px #eee;
+    border-top: solid 1px $color-eee;
+    border-bottom: solid 1px $color-eee;
   }
   
   li {
@@ -77,7 +77,7 @@ body {
 }
 
 a {
-  color: #393939;
+  color: $color-393;
   text-decoration: none;
   transition: all .8s;
   &:hover {
@@ -86,12 +86,16 @@ a {
 }
 
 .active {
-  color: #50CF9C;
+  color: $color-link-active;
 }
 
 
 .chart-container {
-  display: flex;
-  justify-content: center;
-  padding: 40px;
+  @include flex-center;
+  padding: 20px 0;
+  width: 100%;
+}
+
+chart {
+  width: 100%;
 }

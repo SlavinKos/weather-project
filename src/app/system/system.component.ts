@@ -2,15 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subject, of } from 'rxjs';
 import { filter, debounceTime, distinctUntilChanged, switchMap, mergeMap, map } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
-
-import * as WeatherActions from './store/weather.actions';
-import * as SelectedDayActions from './store/selectedDay.actions';
-import * as fromAppStore from '../store/app.reducers';
-import { WeatherService } from './services/weather.service';
-
 import * as moment from 'moment';
 
 import { environment } from '@env/environment';
+
+import * as fromAppStore from '@state';
+import * as WeatherActions from '@actions/weather.actions';
+import * as SelectedDayActions from '@actions/selectedDay.actions';
+
+import { WeatherService } from './services/weather.service';
+
+
 
 @Component({
 	selector: 'ski-system',
@@ -40,7 +42,6 @@ export class SystemComponent implements OnInit {
 			.subscribe((weather: any) => {
 				if (weather.weather.length) {
 				const w = weather.weather[0];
-				console.log(w);
 				this.show = true;
 					this.dayInit = {
 							city: w.city.name,

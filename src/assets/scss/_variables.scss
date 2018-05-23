@@ -1,0 +1,24 @@
+/*
+*
+  Colors
+*
+*/
+$color-eee: #eeeeee;
+$color-393: #393939;
+$color-link-active: #50CF9C;
+
+
+/*
+*
+  Mixins
+*
+*/
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+}
+
+@mixin flex-direction {
+  display: flex;
+  flex-direction: row;
+}

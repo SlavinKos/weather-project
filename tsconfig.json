@@ -19,6 +19,8 @@
     "paths": {
       "@env/*": ["./src/environments/*"],
       "@baseApi/*": ["./src/app/system/services/base-api.ts"],
+      "@actions/*": ["./src/app/system/store/*"],
+      "@state": ["./src/app/store/app.reducers.ts"],
     }
 
   }

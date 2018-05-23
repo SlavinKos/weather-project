@@ -6,18 +6,7 @@ export interface State {
 }
 
 const initialState: State = {
-	selectedDay: [
-		// {
-		// 	city: '',
-		// 	country: '',
-		// 	temp: '',
-		// 	pres: '',
-		// 	hum: '',
-		// 	wind: '',
-		// 	cloud: '',
-		// 	date: '',
-		// }
-	]
+	selectedDay: [ ]
 };
 
 export function selectedDay(

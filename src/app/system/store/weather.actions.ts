@@ -13,7 +13,6 @@ export class FetchWeather implements Action {
 export class SetWeather implements Action {
 	readonly type = SET_WEATHER;
 	constructor(public payload: any) {
-		// console.log('payload', payload);
 	}
 }
 

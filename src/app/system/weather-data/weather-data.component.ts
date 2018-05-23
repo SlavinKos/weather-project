@@ -11,9 +11,7 @@ import * as fromAppStore from '../../store/app.reducers';
 export class WeatherDataComponent implements OnInit {
 	selectedDay$: Observable <any>;
 
-	constructor(
-		private _store: Store<fromAppStore.AppState>
-	) { }
+	constructor(public _store: Store<fromAppStore.AppState>) { }
 
 	ngOnInit() {
 		this.selectedDay$ =	this._store.select(state => {
@@ -22,5 +20,4 @@ export class WeatherDataComponent implements OnInit {
 			}
 		});
 	}
-
 }
