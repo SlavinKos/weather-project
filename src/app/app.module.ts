@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Store
 import { StoreModule } from '@ngrx/store';
@@ -16,6 +16,8 @@ import { environment } from '@env/environment';
 
 import { reducers } from './store/app.reducers';
 import { WeatherEffects } from './system/store/weather.effects';
+
+import { SharedInterceptor } from './shared/interceptor/shared.interceptor';
 
 import 'hammerjs';
 
@@ -34,7 +36,13 @@ import 'hammerjs';
 		EffectsModule.forRoot([WeatherEffects]),
 		!environment.production ? StoreDevtoolsModule.instrument({ maxAge: 50 }) : null,
 	],
-	providers: [],
+	providers: [
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: SharedInterceptor,
+			multi: true,
+		},
+	],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,7 +15,6 @@ import { environment } from '@env/environment';
 @Component({
 	selector: 'ski-system',
 	templateUrl: './system.component.html',
-	styleUrls: ['./system.component.scss']
 })
 export class SystemComponent implements OnInit {
 	protected apiIconUrl = environment.apiIconUrl;
@@ -23,11 +22,13 @@ export class SystemComponent implements OnInit {
 	weatherData: boolean = false;
 	weatherIcon: string;
 	dayInit: {};
+	selectedDay$: Observable<any>;
 
-	// selectedDay$: Observable <any>;
 	weatherRes: any;
 	city: string;
 	country: string;
+	show: boolean = false;
+	
 
 	constructor(
 			private _weatherS: WeatherService,
@@ -39,6 +40,8 @@ export class SystemComponent implements OnInit {
 			.subscribe((weather: any) => {
 				if (weather.weather.length) {
 				const w = weather.weather[0];
+				console.log(w);
+				this.show = true;
 					this.dayInit = {
 							city: w.city.name,
 							country: w.city.country,
@@ -48,11 +51,16 @@ export class SystemComponent implements OnInit {
 							wind: w.list[0].wind.speed,
 							cloud: w.list[0].clouds.all,
 							date: moment.unix(w.list[0].dt).format('dddd, D MMM'),
-							weatherIcon: `${this.apiIconUrl}/${w.list[0].weather[0].icon}.png`
+							weatherIcon: `${this.apiIconUrl}/${w.list[0].weather[0].icon}.png`,
+							weather: w.list[0].weather[0].main
 						};
-						console.log('system');
-						
 				this._store.dispatch(new SelectedDayActions.SetSelectedDay(this.dayInit));
+				}
+			});
+
+			this.selectedDay$ =	this._store.select(state => {
+				if (state.selectedDay.selectedDay.length) {
+					return state.selectedDay.selectedDay;
 				}
 			});
 	}

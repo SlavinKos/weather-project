@@ -27,7 +27,7 @@ export class WeatherEffects {
 							};
 						}
 			),
-			catchError((error: any) => Observable.throw(error.json()))
+			// catchError((error: any) => Observable.throw(error.json()))
 			);
 		})
 	);

@@ -1,29 +1,42 @@
 .selected-day, .search {
   display: flex;
-  justify-content: center;
+  flex-direction: row;
   height: auto;
-  outline: solid red 0px;
-  margin: 20px 0;
+  margin: 20px;
   .weather-icon {
-    width: 20%;
-    text-align: left;
+    -webkit-align-self: flex-start;
+   align-self: flex-start;
   }
   .weather-form {
-    width: 80%;
-    text-align: right;
+    margin-left: auto;
+    button {
+      margin-left: 20px;
+    }
   }
   .day-short {
     text-align: left;
-    outline: solid blue 0px;
     width: 20%;
   }
   .day-long {
     text-align: center;
-    outline: solid blue 0px;
     width: 80%;
     .data {
+      p {
+        display: flex;
+        justify-content: center;
+        span {
+          position: relative;
+          top: 15px;
+        }
+      }
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-around;
+      }
       li {
-        font-weight: bold;
+        font-weight: 800;
         list-style: none;
         display: inline;
         margin: 0 10px;
@@ -37,4 +50,48 @@
 
 .mat-raised-button {
   margin-left: 20px;
+}
+.weather-menu {
+  p {
+    margin-left: 30px;
+  }
+  ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 10px;
+    border-top: solid 1px #eee;
+    border-bottom: solid 1px #eee;
+  }
+  
+  li {
+    margin: 0 20px;
+    flex-wrap: wrap;
+  }
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+a {
+  color: #393939;
+  text-decoration: none;
+  transition: all .8s;
+  &:hover {
+    opacity: .6;
+  }
+}
+
+.active {
+  color: #50CF9C;
+}
+
+
+.chart-container {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
 }

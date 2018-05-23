@@ -1,13 +1,16 @@
-<div *ngIf="selectedDay$">
-
-  <div class="selected-day" *ngFor="let d of selectedDay$ | async">
+  <div 
+        class="selected-day" 
+        *ngFor="let d of selectedDay$ | async"
+  >
     <div class="day-short">{{ d.date }}</div>
     <div class="day-long">
-      <div 
-            class="day-long data"
-      >
+      <div class="day-long data">
         <h4> {{ d.city }}, {{ d.country }}</h4>
         <h2>  {{ d.temp }} °C</h2>
+        <p>
+          <img [src]="d.weatherIcon" alt="">
+          <span>{{ d.weather }}</span>
+        </p>
         <ul>
           <li>Pressure: <span>{{ d.pres }}</span> </li>
           <li>Humidity: <span>{{ d.hum }}</span> </li>
@@ -16,18 +19,17 @@
         </ul>
       </div>
     </div>
-  
   </div>
   
+  <div class="weather-menu">
   <p>Forecast 16 days</p>
-  <mat-tab-group>
-    <mat-tab label="Wind">
-      
-    </mat-tab>
-    <mat-tab label="Temperature">
-        <ski-temperature></ski-temperature>
-    </mat-tab>
-    <mat-tab label="Presure">Pressure</mat-tab>
-    <mat-tab label="Humidity">Humidity</mat-tab>
-  </mat-tab-group>
+    
+    <ul>
+      <li><a routerLink="wind" routerLinkActive="active">Wind</a></li>
+      <li><a routerLink="temperature" routerLinkActive="active">Temperature</a></li>
+      <li><a routerLink="pressure" routerLinkActive="active">Pressure</a></li>
+      <li><a routerLink="humidity" routerLinkActive="active">Humidity</a></li>
+    </ul>
   </div>
+
+  <router-outlet></router-outlet>

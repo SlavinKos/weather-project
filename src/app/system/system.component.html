@@ -2,8 +2,8 @@
 
 <div class="search">
 
-  <div class="weather-icon" *ngIf="dayInit">
-    <img [src]="dayInit.weatherIcon" alt="">
+  <div class="weather-icon" *ngFor="let d of selectedDay$ | async">
+    <img [src]="d.weatherIcon" alt="">
   </div>
 
   <div class="weather-form">
@@ -22,7 +22,7 @@
 </div>
 </div>
 
-<ski-weather-data></ski-weather-data>
+<ski-weather-data *ngIf="show"></ski-weather-data>
 
 <!-- 
 <ski-weather-search></ski-weather-search>
