@@ -21,9 +21,7 @@ export class SharedInterceptor implements HttpInterceptor {
 	intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 		return next
 			.handle(req)
-			.do(event => {
-				console.log('req', event);
-			},
+			.do(event => { },
 				(error: any) => {
 					if (error instanceof HttpErrorResponse) {
 						if (error.status === 404) {

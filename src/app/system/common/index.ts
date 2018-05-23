@@ -1,8 +1,8 @@
 // Modules
-export * from '../../shared/shared.module';
+export * from '../../common/shared.module';
 export * from '../system-routing.module';
 
-// Serice
+// Services
 export * from '../services/weather.service';
 
 // Components

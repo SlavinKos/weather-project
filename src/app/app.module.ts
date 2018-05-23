@@ -8,19 +8,17 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
-import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SystemModule } from './system/system.module';
 import { reducers } from '@state';
 import { WeatherEffects } from '@actions/weather.effects';
 import { environment } from '@env/environment';
-import { SharedInterceptor } from './shared/interceptor/shared.interceptor';
-import { SnackService } from './shared/services/snack.service';
+import { SharedInterceptor } from './common/interceptor/shared.interceptor';
+import { SnackService } from './common/services/snack.service';
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		NotFoundComponent
 	],
 	imports: [
 		BrowserModule,

@@ -7,7 +7,7 @@ import {
 } from '@angular/material';
 import { Subscription } from 'rxjs';
 
-import { SnackService, SnackBarMessage } from './shared/services/snack.service';
+import { SnackService, SnackBarMessage } from './common/services/snack.service';
 
 @Component({
 	selector: 'ski-root',
