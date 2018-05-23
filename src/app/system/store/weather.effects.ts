@@ -19,7 +19,6 @@ export class WeatherEffects {
 		.ofType(WeatherActions.FETCH_WEATHER)
 		.pipe(
 			switchMap((action: WeatherActions.FetchWeather) => {
-				console.log('effect ', action.payload);
 				return this._weatherS.getWeather(action.payload)
 					.pipe(
 						map(weather => {
