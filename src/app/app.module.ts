@@ -15,7 +15,7 @@ import { reducers } from '@state';
 import { WeatherEffects } from '@actions/weather.effects';
 import { environment } from '@env/environment';
 import { SharedInterceptor } from './shared/interceptor/shared.interceptor';
-
+import { SnackService } from './shared/services/snack.service';
 
 @NgModule({
 	declarations: [
@@ -33,6 +33,7 @@ import { SharedInterceptor } from './shared/interceptor/shared.interceptor';
 		!environment.production ? StoreDevtoolsModule.instrument({ maxAge: 50 }) : null,
 	],
 	providers: [
+		SnackService,
 		{
 			provide: HTTP_INTERCEPTORS,
 			useClass: SharedInterceptor,
