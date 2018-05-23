@@ -12,11 +12,3 @@ export * from '../weather-data/temperature/temperature.component';
 export * from '../weather-data/wind/wind.component';
 export * from '../weather-data/pressure/pressure.component';
 export * from '../weather-data/humidity/humidity.component';
-
-// Store
-export * from '../../store/app.reducers';
-export * from '../store/selectedDay.actions';
-export * from '../common/base-weather-class';
-
-// Base weather class
-export * from '../common/base-weather-class';

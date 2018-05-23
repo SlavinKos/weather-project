@@ -15,11 +15,10 @@ export class BaseWeatherClass implements OnInit {
 	chart: Object;
 	selectedDay: any;
 	temperature: boolean = false;
-  optionsData: any;
-  
+	optionsData: any;
 
 	constructor(
-    public _store: Store<fromAppStore.AppState>,
+		public _store: Store<fromAppStore.AppState>,
 	) { }
 
 	ngOnInit() {
@@ -27,7 +26,6 @@ export class BaseWeatherClass implements OnInit {
 		if (state.weather.weather.length) {
 			this.temperature = true;
 			this.optionsData = state.weather.weather[0];
-			
 			return this.setChartData();
 		}
 	});
@@ -77,7 +75,7 @@ export class BaseWeatherClass implements OnInit {
 				}),
 				crosshair: true
 		}],
-		yAxis: [{ 
+		yAxis: [{
 			labels: {
 					format: `{value}${data.format}`,
 					style: { }

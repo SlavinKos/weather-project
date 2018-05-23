@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { 
+import {
 	HttpInterceptor,
-	HttpRequest, 
-	HttpResponse, 
+	HttpRequest,
+	HttpResponse,
 	HttpEvent,
 	HttpErrorResponse,
 	HttpHandler
@@ -16,24 +16,21 @@ import { SnackService } from '../services/snack.service';
 @Injectable()
 export class SharedInterceptor implements HttpInterceptor {
 
-	constructor(private _snackBar: SnackService,) {}
+	constructor(private _snackBar: SnackService) {}
 
 	intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-		
 		return next
 			.handle(req)
 			.do(event => {
-				if (event instanceof HttpResponse) {
-				}
+				console.log('req', event);
 			},
-			(error: any) => {
-				if (error instanceof HttpErrorResponse) {
-					if (error.status === 404) {
-						this._snackBar.message({ message: 'City not found please check the name' });
+				(error: any) => {
+					if (error instanceof HttpErrorResponse) {
+						if (error.status === 404) {
+							this._snackBar.message({ message: 'City not found please check the name' });
+						}
 					}
-				}
 		});
 	}
-	
 
 }

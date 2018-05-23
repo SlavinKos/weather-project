@@ -30,7 +30,7 @@ export class SystemComponent implements OnInit {
 	city: string;
 	country: string;
 	show: boolean = false;
-	
+
 
 	constructor(
 			private _weatherS: WeatherService,

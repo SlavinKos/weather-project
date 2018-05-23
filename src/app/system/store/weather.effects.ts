@@ -1,8 +1,9 @@
 import { Actions, Effect } from '@ngrx/effects';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { switchMap, map, catchError } from 'rxjs/operators';
 
+import 'rxjs/add/observable/throw';
 
 import { WeatherService } from '../services/weather.service';
 import * as WeatherActions from './weather.actions';
@@ -18,6 +19,7 @@ export class WeatherEffects {
 		.ofType(WeatherActions.FETCH_WEATHER)
 		.pipe(
 			switchMap((action: WeatherActions.FetchWeather) => {
+				console.log('effect ', action.payload);
 				return this._weatherS.getWeather(action.payload)
 					.pipe(
 						map(weather => {
@@ -25,10 +27,9 @@ export class WeatherEffects {
 								type: WeatherActions.SET_WEATHER,
 								payload: weather
 							};
-						}
-			),
-			// catchError((error: any) => Observable.throw(error.json()))
-			);
+						}),
+						catchError((error: any) => of(new WeatherActions.SetError(error)))
+					);
 		})
 	);
 
