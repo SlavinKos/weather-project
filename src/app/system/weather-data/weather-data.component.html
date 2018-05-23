@@ -1,0 +1,33 @@
+<div *ngIf="selectedDay$">
+
+  <div class="selected-day" *ngFor="let d of selectedDay$ | async">
+    <div class="day-short">{{ d.date }}</div>
+    <div class="day-long">
+      <div 
+            class="day-long data"
+      >
+        <h4> {{ d.city }}, {{ d.country }}</h4>
+        <h2>  {{ d.temp }} °C</h2>
+        <ul>
+          <li>Pressure: <span>{{ d.pres }}</span> </li>
+          <li>Humidity: <span>{{ d.hum }}</span> </li>
+          <li>Wind speed: <span>{{ d.wind }} m/s</span> </li>
+          <li>Clouds: <span>{{ d.cloud }} %</span> </li>
+        </ul>
+      </div>
+    </div>
+  
+  </div>
+  
+  <p>Forecast 16 days</p>
+  <mat-tab-group>
+    <mat-tab label="Wind">
+      
+    </mat-tab>
+    <mat-tab label="Temperature">
+        <ski-temperature></ski-temperature>
+    </mat-tab>
+    <mat-tab label="Presure">Pressure</mat-tab>
+    <mat-tab label="Humidity">Humidity</mat-tab>
+  </mat-tab-group>
+  </div>

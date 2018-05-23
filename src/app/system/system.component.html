@@ -1,0 +1,30 @@
+
+
+<div class="search">
+
+  <div class="weather-icon" *ngIf="dayInit">
+    <img [src]="dayInit.weatherIcon" alt="">
+  </div>
+
+  <div class="weather-form">
+  <form>
+    <mat-form-field class="example-full-width">
+      <input 
+          matInput 
+          placeholder="City or zip code"
+          autocomplete="off"
+          [(ngModel)]="search"
+          [ngModelOptions]="{standalone: true}"
+      >
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="getWeather()">Get weather</button>
+  </form>
+</div>
+</div>
+
+<ski-weather-data></ski-weather-data>
+
+<!-- 
+<ski-weather-search></ski-weather-search>
+
+<ski-weather-data></ski-weather-data> -->

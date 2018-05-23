@@ -1,0 +1,36 @@
+.selected-day, .search {
+  display: flex;
+  justify-content: center;
+  height: auto;
+  outline: solid red 0px;
+  margin: 20px 0;
+  .weather-icon {
+    width: 20%;
+    text-align: left;
+  }
+  .weather-form {
+    width: 80%;
+    text-align: right;
+  }
+  .day-short {
+    text-align: left;
+    outline: solid blue 0px;
+    width: 20%;
+  }
+  .day-long {
+    text-align: center;
+    outline: solid blue 0px;
+    width: 80%;
+    .data {
+      li {
+        font-weight: bold;
+        list-style: none;
+        display: inline;
+        margin: 0 10px;
+        span {
+          font-weight: normal;
+        }
+      }
+    }
+  }
+}
